@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LuxeWebview</string>
+    <string name="title_activity_root">RootActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+</resources>

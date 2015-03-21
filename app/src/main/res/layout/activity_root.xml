@@ -1,0 +1,20 @@
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:lx="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <com.kazy.lx.LxWebView
+            android:id="@+id/webview_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            lx:dom_storage_enabled="true"
+            lx:save_form_data="true"
+            lx:java_script_enabled="true"
+            lx:cache_mode="load_default"
+            lx:need_initial_focus="false"
+            lx:built_in_zoom_controls="true"
+            lx:display_zoom_controls="false"
+            lx:support_zoom="true"
+            lx:load_with_overview_mode="true"
+            lx:use_wide_view_port="true"/>
+</RelativeLayout>
