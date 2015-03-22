@@ -18,7 +18,7 @@ public class RootActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_root);
         ButterKnife.inject(this);
-        webView.addUriFooker(new UnsupportedProtcolInterceptor(this));
+        webView.addLoadingInterceptor(new UnsupportedProtcolInterceptor(this));
         webView.loadUrl("http://google.com");
     }
 

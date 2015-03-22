@@ -1,12 +1,12 @@
 package com.kazy.lx.sample;
 
-import com.kazy.lx.LoadingEventInterceptor;
+import com.kazy.lx.LoadingInterceptor;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 
-public class UnsupportedProtcolInterceptor implements LoadingEventInterceptor {
+public class UnsupportedProtcolInterceptor implements LoadingInterceptor {
     private Activity activity;
 
     public UnsupportedProtcolInterceptor(Activity activity) {

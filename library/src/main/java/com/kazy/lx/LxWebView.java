@@ -17,7 +17,7 @@ public class LxWebView extends WebView {
 
     private WebViewStateCallback stateCallback;
 
-    private List<LoadingEventInterceptor> loadingEventInterceptors = new ArrayList<>();
+    private List<LoadingInterceptor> loadingInterceptors = new ArrayList<>();
 
     public LxWebView(Context context) {
         super(context);
@@ -91,8 +91,8 @@ public class LxWebView extends WebView {
         setWebViewClient(new WebServiceViewClient());
     }
 
-    public void addUriFooker(LoadingEventInterceptor loadingEventInterceptor) {
-        this.loadingEventInterceptors.add(loadingEventInterceptor);
+    public void addLoadingInterceptor(LoadingInterceptor loadingInterceptor) {
+        this.loadingInterceptors.add(loadingInterceptor);
     }
 
     private class WebServiceViewClient extends WebViewClient {
@@ -133,7 +133,7 @@ public class LxWebView extends WebView {
 
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String loadingUrl) {
-            if (loadingUrl == null || loadingEventInterceptors == null) {
+            if (loadingUrl == null || loadingInterceptors == null) {
                 return false;
             }
             return intercepted(Uri.parse(loadingUrl));
@@ -150,7 +150,7 @@ public class LxWebView extends WebView {
     }
 
     private boolean intercepted(Uri uri) {
-        for (LoadingEventInterceptor hooker : loadingEventInterceptors) {
+        for (LoadingInterceptor hooker : loadingInterceptors) {
             if (hooker.validate(uri)) {
                 hooker.exec(uri);
                 return true;
