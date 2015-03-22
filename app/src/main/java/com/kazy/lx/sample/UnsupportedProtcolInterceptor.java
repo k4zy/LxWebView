@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.net.Uri;
 
 public class UnsupportedProtcolInterceptor implements LoadingInterceptor {
+
     private Activity activity;
 
     public UnsupportedProtcolInterceptor(Activity activity) {

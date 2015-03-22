@@ -15,7 +15,7 @@ import java.util.List;
 
 public class LxWebView extends WebView {
 
-    private WebViewStateCallback stateCallback;
+    private WebViewStateListener stateCallback;
 
     private List<LoadingInterceptor> loadingInterceptors = new ArrayList<>();
 
@@ -34,7 +34,7 @@ public class LxWebView extends WebView {
         setupWebview(attrs);
     }
 
-    public void setStateCallback(WebViewStateCallback stateCallback) {
+    public void setOnWebViewStateListener(WebViewStateListener stateCallback) {
         this.stateCallback = stateCallback;
     }
 
@@ -105,7 +105,7 @@ public class LxWebView extends WebView {
             if (state == WebViewState.STOP) {
                 state = WebViewState.START;
                 if (stateCallback != null) {
-                    stateCallback.onStartLoading();
+                    stateCallback.onStartLoading(url, favicon);
                 }
             }
         }
@@ -116,7 +116,7 @@ public class LxWebView extends WebView {
             super.onReceivedError(view, errorCode, description, failingUrl);
             state = WebViewState.ERROR;
             if (stateCallback != null) {
-                stateCallback.onError();
+                stateCallback.onError(errorCode, description, failingUrl);
             }
         }
 
@@ -125,7 +125,7 @@ public class LxWebView extends WebView {
             super.onPageFinished(view, loadedUrl);
             if (state == WebViewState.START) {
                 if (stateCallback != null) {
-                    stateCallback.onFinishLoaded();
+                    stateCallback.onFinishLoaded(loadedUrl);
                 }
             }
             state = WebViewState.STOP;
