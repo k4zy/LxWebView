@@ -72,21 +72,7 @@ public class LxWebView extends WebView {
         args.recycle();
     }
 
-    @SuppressLint("SetJavaScriptEnabled")
     private void setupWebview() {
-        WebSettings setting = getSettings();
-        setting.setJavaScriptEnabled(true);
-        setting.setDomStorageEnabled(true);
-        setting.setDatabaseEnabled(false);
-        setting.setAppCacheEnabled(false);
-        setting.setSaveFormData(false);
-        setting.setCacheMode(WebSettings.LOAD_DEFAULT);
-        setting.setNeedInitialFocus(false);
-        setting.setBuiltInZoomControls(false);
-        setting.setDisplayZoomControls(false);
-        setting.setSupportZoom(true);
-        setting.setLoadWithOverviewMode(false);
-        setting.setUseWideViewPort(true);
         setScrollBarStyle(WebView.SCROLLBARS_INSIDE_OVERLAY);
         setWebViewClient(new WebServiceViewClient());
     }
