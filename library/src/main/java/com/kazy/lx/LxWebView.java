@@ -150,9 +150,9 @@ public class LxWebView extends WebView {
     }
 
     private boolean intercepted(Uri uri) {
-        for (LoadingInterceptor hooker : loadingInterceptors) {
-            if (hooker.validate(uri)) {
-                hooker.exec(uri);
+        for (LoadingInterceptor loadingInterceptor : loadingInterceptors) {
+            if (loadingInterceptor.validate(uri)) {
+                loadingInterceptor.exec(uri);
                 return true;
             }
         }
