@@ -1,5 +1,6 @@
 package com.kazy.lx.sample;
 
+import com.kazy.lx.LxWebContainerView;
 import com.kazy.lx.LxWebView;
 
 import android.os.Bundle;
@@ -11,7 +12,7 @@ import butterknife.InjectView;
 public class RootActivity extends ActionBarActivity {
 
     @InjectView(R.id.webview_view)
-    LxWebView webView;
+    LxWebContainerView webView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

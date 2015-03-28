@@ -3,7 +3,7 @@
         xmlns:lx="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <com.kazy.lx.LxWebView
+    <com.kazy.lx.LxWebContainerView
             android:id="@+id/webview_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
