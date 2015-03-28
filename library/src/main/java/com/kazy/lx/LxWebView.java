@@ -6,16 +6,10 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.util.AttributeSet;
-import android.util.Xml;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.FrameLayout;
-import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;
