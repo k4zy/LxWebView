@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LuxeWebview</string>
+    <string name="error_message">何らかの理由で、表示できません</string>
+    <string name="reload_message">再読み込みをする</string>
+</resources>
