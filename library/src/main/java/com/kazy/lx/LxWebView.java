@@ -115,7 +115,7 @@ public class LxWebView extends WebView {
         @Override
         public void onProgressChanged(WebView view, int progress) {
             super.onProgressChanged(view, progress);
-            if(state == WebViewState.START){
+            if(state == WebViewState.LOADING){
                 for(WebViewStateListener listener : webViewStateListeners){
                     listener.onProgressChanged(view, progress);
                 }
@@ -130,7 +130,7 @@ public class LxWebView extends WebView {
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
             super.onPageStarted(view, url, favicon);
             if (state == WebViewState.STOP) {
-                state = WebViewState.START;
+                state = WebViewState.LOADING;
                 for(WebViewStateListener listener : webViewStateListeners){
                     listener.onStartLoading(url, favicon);
                 }
@@ -150,7 +150,7 @@ public class LxWebView extends WebView {
         @Override
         public void onPageFinished(WebView view, String loadedUrl) {
             super.onPageFinished(view, loadedUrl);
-            if (state == WebViewState.START) {
+            if (state == WebViewState.LOADING) {
                 for(WebViewStateListener listener : webViewStateListeners){
                     listener.onProgressChanged(view, 100);
                     listener.onFinishLoaded(loadedUrl);
