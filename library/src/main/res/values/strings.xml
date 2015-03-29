@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">LxWebView</string>
+    <string name="error_title">Unable to connect Internet</string>
+    <string name="error_description">Please make sure of network state、and try again.</string>
+    <string name="reload_message">reload</string>
+</resources>

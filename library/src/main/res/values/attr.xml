@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Lx">
+        <attr name="allow_content_access" format="boolean"/>
+        <attr name="allow_file_access" format="boolean"/>
+        <attr name="allow_file_access_from_file_urls" format="boolean"/>
+        <attr name="allow_universal_access_from_file_urls" format="boolean"/>
+        <attr name="app_cache_enabled" format="boolean"/>
+        <attr name="block_network_image" format="boolean"/>
+        <attr name="block_network_loads" format="boolean"/>
+        <attr name="geolocation_enabled" format="boolean"/>
+        <attr name="java_script_can_open_windows_automatically" format="boolean"/>
+        <attr name="loads_images_automatically" format="boolean"/>
+        <attr name="media_playback_requires_user_gesture" format="boolean"/>
+        <attr name="support_multiple_windows" format="boolean"/>
+
+        <attr name="java_script_enabled" format="boolean"/>
+        <attr name="dom_storage_enabled" format="boolean"/>
+        <attr name="database_enabled" format="boolean"/>
+        <attr name="save_form_data" format="boolean"/>
+        <attr name="cache_mode">
+            <enum name="load_default" value="-1"/>
+        </attr>
+        <attr name="need_initial_focus" format="boolean"/>
+        <attr name="built_in_zoom_controls" format="boolean"/>
+        <attr name="display_zoom_controls" format="boolean"/>
+        <attr name="support_zoom" format="boolean"/>
+        <attr name="use_wide_view_port" format="boolean"/>
+        <attr name="load_with_overview_mode" format="boolean"/>
+        <attr name="scroll_bar_style">
+            <enum name="scrollbars_inside_overlay" value="0"/>
+        </attr>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="error_title">ネットワークに接続されていません</string>
+    <string name="error_description">通信状態をお確かめのうえ、再度お試し下さい</string>
+    <string name="reload_message">再読み込み</string>
+</resources>
