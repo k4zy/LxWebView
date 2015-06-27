@@ -23,6 +23,8 @@ public class LxWebContainerView extends RelativeLayout {
 
     private Button reloadButton;
 
+    private static final Animation animation = new AlphaAnimation(1f, 0f);
+
     public LxWebContainerView(Context context) {
         super(context);
         initialize();
@@ -30,17 +32,17 @@ public class LxWebContainerView extends RelativeLayout {
 
     public LxWebContainerView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        initialize(attrs);
+        initialize();
+        setupWebSettings(attrs);
     }
 
     public LxWebContainerView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        initialize(attrs);
+        initialize();
+        setupWebSettings(attrs);
     }
 
-    private void initialize(AttributeSet attrs) {
-        bindViews();
-        bindWebViewState();
+    private void setupWebSettings(AttributeSet attrs) {
         TypedArray args = getContext().obtainStyledAttributes(attrs, R.styleable.Lx);
         lxWebView.setupWebSettings(args);
         args.recycle();
@@ -49,6 +51,7 @@ public class LxWebContainerView extends RelativeLayout {
     private void initialize() {
         bindViews();
         bindWebViewState();
+        animation.setDuration(1000);
     }
 
     private void bindWebViewState() {
@@ -56,6 +59,7 @@ public class LxWebContainerView extends RelativeLayout {
             @Override
             public void onStartLoading(String url, Bitmap favicon) {
                 progressBar.clearAnimation();
+                progressBar.setProgress(0);
                 progressBar.setVisibility(View.VISIBLE);
                 errorView.setVisibility(View.GONE);
             }
@@ -69,8 +73,6 @@ public class LxWebContainerView extends RelativeLayout {
 
             @Override
             public void onFinishLoaded(String loadedUrl) {
-                Animation animation = new AlphaAnimation(1f, 0f);
-                animation.setDuration(1000);
                 progressBar.startAnimation(animation);
                 progressBar.setVisibility(View.GONE);
                 lxWebView.setVisibility(View.VISIBLE);
