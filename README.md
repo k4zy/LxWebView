@@ -57,7 +57,7 @@ How to
 License
 -------
 
-    Copyright 2013 Kazuki Yoshida
+    Copyright 2015 Kazuki Yoshida
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
