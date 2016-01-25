@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
+import java.util.Map;
+
 public class LxWebContainerView extends RelativeLayout {
 
     private LxWebView lxWebView;
@@ -115,6 +117,10 @@ public class LxWebContainerView extends RelativeLayout {
 
     public void loadUrl(String url) {
         lxWebView.loadUrl(url);
+    }
+
+    public void loadUrl(String url, Map<String, String> additionalHttpHeaders) {
+        lxWebView.loadUrl(url, additionalHttpHeaders);
     }
 
     public boolean canGoBack() {

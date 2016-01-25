@@ -13,6 +13,7 @@ import android.webkit.WebViewClient;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class LxWebView extends WebView {
 
@@ -175,6 +176,14 @@ public class LxWebView extends WebView {
             return;
         }
         super.loadUrl(url);
+    }
+
+    @Override
+    public void loadUrl(String url, Map<String, String> additionalHttpHeaders) {
+        if (intercept(Uri.parse(url))) {
+            return;
+        }
+        super.loadUrl(url, additionalHttpHeaders);
     }
 
     private boolean intercept(Uri uri) {
