@@ -104,6 +104,10 @@ public class LxWebView extends WebView {
         setting.setSupportMultipleWindows(supportMultipleWindows);
         setting.setSupportZoom(supportZoom);
         setting.setUseWideViewPort(useWideViewPort);
+
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            setting.setSavePassword(false);
+        }
     }
 
     public void addLoadingInterceptor(LoadingInterceptor loadingInterceptor) {
