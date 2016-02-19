@@ -32,7 +32,7 @@ public class RootActivity extends ActionBarActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         url = "http://yahoo.co.jp";
         toolbar.setTitle(url);
-        webContainerView.addLoadingInterceptor(new UnsupportedProtcolInterceptor(this));
+        webContainerView.addLoadingInterceptor(new UnsupportedProtocolInterceptor(this));
         webContainerView.loadUrl(url);
         webContainerView.addOnWebViewStateListener(new WebViewStateListener() {
             @Override
