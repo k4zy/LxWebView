@@ -1,17 +1,39 @@
-<RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:lx="http://schemas.android.com/apk/res-auto"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:lx="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/my_appbar_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <com.kazy.lx.LxWebContainerView
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways" />
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <com.kazy.lx.LxWebContainerView
             android:id="@+id/webview_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            lx:dom_storage_enabled="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
             lx:app_cache_enabled="true"
-            lx:java_script_enabled="true"
             lx:built_in_zoom_controls="true"
             lx:display_zoom_controls="false"
+            lx:dom_storage_enabled="true"
+            lx:java_script_enabled="true"
             lx:load_with_overview_mode="true"
-            lx:use_wide_view_port="true"/>
-</RelativeLayout>
+            lx:use_wide_view_port="true" />
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>
