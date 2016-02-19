@@ -29,19 +29,24 @@ public class LxWebContainerView extends RelativeLayout {
 
     public LxWebContainerView(Context context) {
         super(context);
-        initialize();
+        if (!isInEditMode())
+            initialize();
     }
 
     public LxWebContainerView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        initialize();
-        setupWebSettings(attrs);
+        if (!isInEditMode()) {
+            initialize();
+            setupWebSettings(attrs);
+        }
     }
 
     public LxWebContainerView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        initialize();
-        setupWebSettings(attrs);
+        if (!isInEditMode()) {
+            initialize();
+            setupWebSettings(attrs);
+        }
     }
 
     private void setupWebSettings(AttributeSet attrs) {
