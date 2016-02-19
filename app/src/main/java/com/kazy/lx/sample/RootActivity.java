@@ -2,7 +2,7 @@ package com.kazy.lx.sample;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,7 +14,7 @@ import com.kazy.lx.WebViewStateListener;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-public class RootActivity extends ActionBarActivity {
+public class RootActivity extends AppCompatActivity {
 
     @InjectView(R.id.webview_view)
     LxWebContainerView webContainerView;

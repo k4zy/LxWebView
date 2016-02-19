@@ -18,7 +18,7 @@ public class UnsupportedProtocolInterceptor implements LoadingInterceptor {
 
     @Override
     public boolean validate(Uri uri) {
-        return !uri.getScheme().equals("http") && !uri.getScheme().equals("https");
+        return uri.getScheme() != null && !uri.getScheme().equals("http") && !uri.getScheme().equals("https");
     }
 
     @Override
