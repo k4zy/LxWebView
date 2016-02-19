@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:background="@color/primary"
-            app:layout_scrollFlags="scroll|enterAlways" />
+            app:layout_scrollFlags="scroll|enterAlways"></android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.NestedScrollView
@@ -53,11 +53,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:textColor="@color/white"
             android:textSize="18sp"
             tools:text="title" />
+
+        <ImageButton
+            android:id="@+id/actionButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?selectableItemBackground"
+            android:src="@drawable/ic_close" />
     </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

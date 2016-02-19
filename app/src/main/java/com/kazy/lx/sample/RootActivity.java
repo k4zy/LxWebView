@@ -6,7 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.kazy.lx.LxWebContainerView;
@@ -23,7 +25,8 @@ public class RootActivity extends AppCompatActivity {
     Toolbar toolbar;
     @InjectView(R.id.title)
     TextView titleTextView;
-
+    @InjectView(R.id.actionButton)
+    ImageButton actionButton;
     private String url;
 
     @Override
@@ -40,22 +43,33 @@ public class RootActivity extends AppCompatActivity {
         webContainerView.addOnWebViewStateListener(new WebViewStateListener() {
             @Override
             public void onStartLoading(String url, Bitmap favicon) {
-
+                actionButton.setImageResource(R.drawable.ic_close);
             }
 
             @Override
             public void onError(int errorCode, String description, String failingUrl) {
-
             }
 
             @Override
             public void onFinishLoaded(String loadedUrl) {
                 titleTextView.setText(webContainerView.getTitle());
+                actionButton.setImageResource(R.drawable.ic_refresh);
             }
 
             @Override
             public void onProgressChanged(WebView view, int progress) {
 
+            }
+        });
+        actionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (webContainerView.isLoading()) {
+                    webContainerView.stopLoading();
+                    actionButton.setImageResource(R.drawable.ic_refresh);
+                } else {
+                    webContainerView.relaod();
+                }
             }
         });
     }
