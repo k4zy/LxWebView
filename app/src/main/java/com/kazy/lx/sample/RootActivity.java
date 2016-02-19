@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
+import android.widget.TextView;
 
 import com.kazy.lx.LxWebContainerView;
 import com.kazy.lx.WebViewStateListener;
@@ -20,6 +21,8 @@ public class RootActivity extends AppCompatActivity {
     LxWebContainerView webContainerView;
     @InjectView(R.id.toolBar)
     Toolbar toolbar;
+    @InjectView(R.id.title)
+    TextView titleTextView;
 
     private String url;
 
@@ -47,7 +50,7 @@ public class RootActivity extends AppCompatActivity {
 
             @Override
             public void onFinishLoaded(String loadedUrl) {
-                toolbar.setTitle(webContainerView.getTitle());
+                titleTextView.setText(webContainerView.getTitle());
             }
 
             @Override
