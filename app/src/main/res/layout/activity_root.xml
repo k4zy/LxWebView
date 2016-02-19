@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:background="@color/primary"
-            app:layout_scrollFlags="scroll|enterAlways"></android.support.v7.widget.Toolbar>
+            app:layout_scrollFlags="scroll|enterAlways" />
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.NestedScrollView
@@ -25,18 +25,18 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <com.kazy.lx.LxWebContainerView
-            android:id="@+id/webview_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            lx:app_cache_enabled="true"
-            lx:built_in_zoom_controls="true"
-            lx:display_zoom_controls="false"
-            lx:dom_storage_enabled="true"
-            lx:java_script_enabled="true"
-            lx:load_with_overview_mode="true"
-            lx:use_wide_view_port="true" />
+            <com.kazy.lx.LxWebContainerView
+                android:id="@+id/webview_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                lx:app_cache_enabled="true"
+                lx:built_in_zoom_controls="true"
+                lx:display_zoom_controls="false"
+                lx:dom_storage_enabled="true"
+                lx:java_script_enabled="true"
+                lx:load_with_overview_mode="true"
+                lx:use_wide_view_port="true" />
     </android.support.v4.widget.NestedScrollView>
 
     <LinearLayout
