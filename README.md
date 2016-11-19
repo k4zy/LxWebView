@@ -1,5 +1,7 @@
 LxWebView
 ============
+[![](https://jitpack.io/v/kazy1991/LxWebView.svg)](https://jitpack.io/#kazy1991/LxWebView)
+
 
 This library provides you useful interfaces which tells loading-state and intercept url loading.  
 You ,not any more, should not create Custom WebView Class.
@@ -28,7 +30,7 @@ How to
 
 ```groovy
   dependencies {
-    compile 'com.github.kazy1991:LxWebView:0.1.0'
+    compile 'com.github.kazy1991:LxWebView:0.2.0'
   }
 ```
 
@@ -70,4 +72,3 @@ License
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-
