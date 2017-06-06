@@ -27,21 +27,28 @@ public class LxWebContainerView extends RelativeLayout {
 
     private static final Animation animation = new AlphaAnimation(1f, 0f);
 
+    private boolean isLoading;
+
     public LxWebContainerView(Context context) {
         super(context);
-        initialize();
+        if (!isInEditMode())
+            initialize();
     }
 
     public LxWebContainerView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        initialize();
-        setupWebSettings(attrs);
+        if (!isInEditMode()) {
+            initialize();
+            setupWebSettings(attrs);
+        }
     }
 
     public LxWebContainerView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        initialize();
-        setupWebSettings(attrs);
+        if (!isInEditMode()) {
+            initialize();
+            setupWebSettings(attrs);
+        }
     }
 
     private void setupWebSettings(AttributeSet attrs) {
@@ -64,6 +71,7 @@ public class LxWebContainerView extends RelativeLayout {
                 progressBar.setProgress(0);
                 progressBar.setVisibility(View.VISIBLE);
                 errorView.setVisibility(View.GONE);
+                isLoading = true;
             }
 
             @Override
@@ -71,6 +79,7 @@ public class LxWebContainerView extends RelativeLayout {
                 progressBar.setVisibility(View.GONE);
                 lxWebView.setVisibility(View.GONE);
                 errorView.setVisibility(View.VISIBLE);
+                isLoading = false;
             }
 
             @Override
@@ -79,6 +88,7 @@ public class LxWebContainerView extends RelativeLayout {
                 progressBar.setVisibility(View.GONE);
                 lxWebView.setVisibility(View.VISIBLE);
                 errorView.setVisibility(View.GONE);
+                isLoading = false;
             }
 
             @Override
@@ -145,10 +155,21 @@ public class LxWebContainerView extends RelativeLayout {
 
     public void setUserAgentString(String ua) {
         lxWebView.getSettings().setUserAgentString(ua);
-
     }
 
     public android.webkit.WebSettings getSettings() {
         return lxWebView.getSettings();
+    }
+
+    public boolean isLoading() {
+        return isLoading;
+    }
+
+    public void stopLoading() {
+        lxWebView.stopLoading();
+    }
+
+    public void relaod() {
+        lxWebView.reload();
     }
 }

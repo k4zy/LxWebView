@@ -7,6 +7,7 @@
     <item name="toolbar_title_color" type="color">#4c4c4c</item>
     <color name="background">#e5e5e5</color>
     <color name="half_black">#808080</color>
+    <color name="primary">#1d1c1c</color>
     <color name="white">#FAFAFA</color>
     <color name="white_pressed">#f1f1f1</color>
     <color name="pink">#e91e63</color>

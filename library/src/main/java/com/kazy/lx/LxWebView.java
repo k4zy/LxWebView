@@ -26,17 +26,20 @@ public class LxWebView extends WebView {
 
     public LxWebView(Context context) {
         super(context);
-        initialize();
+        if (!isInEditMode())
+            initialize();
     }
 
     public LxWebView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        initialize(attrs);
+        if (!isInEditMode())
+            initialize(attrs);
     }
 
     public LxWebView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        initialize(attrs);
+        if (!isInEditMode())
+            initialize(attrs);
     }
 
     public void addOnWebViewStateListener(WebViewStateListener webViewStateListener) {
@@ -76,10 +79,10 @@ public class LxWebView extends WebView {
         boolean javaScriptCanOpenWindowsAutomatically = args.getBoolean(R.styleable.Lx_java_script_can_open_windows_automatically, false);
         boolean jsEnabled = args.getBoolean(R.styleable.Lx_java_script_enabled, false);
         boolean loadWithOverviewMode = args.getBoolean(R.styleable.Lx_load_with_overview_mode, false);
-        boolean loadsImagesAutomatically  = args.getBoolean(R.styleable.Lx_loads_images_automatically, true);
+        boolean loadsImagesAutomatically = args.getBoolean(R.styleable.Lx_loads_images_automatically, true);
         boolean needInitialFocus = args.getBoolean(R.styleable.Lx_need_initial_focus, false);
         boolean saveFormEnabled = args.getBoolean(R.styleable.Lx_save_form_data, true);
-        boolean supportMultipleWindows = args.getBoolean(R.styleable.Lx_support_multiple_windows,false);
+        boolean supportMultipleWindows = args.getBoolean(R.styleable.Lx_support_multiple_windows, false);
         boolean supportZoom = args.getBoolean(R.styleable.Lx_support_zoom, true);
         boolean useWideViewPort = args.getBoolean(R.styleable.Lx_use_wide_view_port, true);
 
@@ -121,8 +124,8 @@ public class LxWebView extends WebView {
         @Override
         public void onProgressChanged(WebView view, int progress) {
             super.onProgressChanged(view, progress);
-            if(state == WebViewState.LOADING){
-                for(WebViewStateListener listener : webViewStateListeners){
+            if (state == WebViewState.LOADING) {
+                for (WebViewStateListener listener : webViewStateListeners) {
                     listener.onProgressChanged(view, progress);
                 }
             }
@@ -137,7 +140,7 @@ public class LxWebView extends WebView {
             super.onPageStarted(view, url, favicon);
             if (state == WebViewState.STOP) {
                 state = WebViewState.LOADING;
-                for(WebViewStateListener listener : webViewStateListeners){
+                for (WebViewStateListener listener : webViewStateListeners) {
                     listener.onStartLoading(url, favicon);
                 }
             }
@@ -145,10 +148,10 @@ public class LxWebView extends WebView {
 
         @Override
         public void onReceivedError(WebView view, int errorCode, String description,
-                String failingUrl) {
+                                    String failingUrl) {
             super.onReceivedError(view, errorCode, description, failingUrl);
             state = WebViewState.ERROR;
-            for(WebViewStateListener listener : webViewStateListeners){
+            for (WebViewStateListener listener : webViewStateListeners) {
                 listener.onError(errorCode, description, failingUrl);
             }
         }
@@ -157,7 +160,7 @@ public class LxWebView extends WebView {
         public void onPageFinished(WebView view, String loadedUrl) {
             super.onPageFinished(view, loadedUrl);
             if (state == WebViewState.LOADING) {
-                for(WebViewStateListener listener : webViewStateListeners){
+                for (WebViewStateListener listener : webViewStateListeners) {
                     listener.onProgressChanged(view, 100);
                     listener.onFinishLoaded(loadedUrl);
                 }
